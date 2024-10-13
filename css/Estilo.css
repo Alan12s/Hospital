@@ -1,0 +1,74 @@
+.tabla_ventanas_login {
+	color: #0084ff;
+	height:50px;	
+	border-right : #DCDCDC 0px solid;
+	border-top   : #DCDCDC 0px solid;
+	border-bottom: #DCDCDC 0px solid;
+	border-left  : #DCDCDC 0px solid;	
+	font-style: normal;
+	font-family: Arial;
+	font-weight: BOLD;
+	font-size: 20px;
+	/*background-color: #02a7c6;*/
+	padding-right : 0px;
+	padding-left  : 0px;
+	padding-top   : 0px;
+	padding-bottom: 0px;	 
+	border-collapse:separate;
+	border-spacing:0px 0px 0px 0px;	
+	border-top-left-radius: 8px 10px;
+	border-top-right-radius:8px 10px;
+	
+}
+.ventanas{
+	 
+	border-right : #DCDCDC 2px solid;
+	border-top   : #DCDCDC 1px solid;
+	border-bottom: #DCDCDC 1px solid;
+	border-left  : #DCDCDC 1px solid;	
+	font-style: normal;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: #0084ff;
+	padding-right : 0px;
+	padding-left  : 0px;
+	padding-top   : 0px;
+	padding-bottom: 20px;	 
+	border-collapse:separate;
+	border-spacing:0px 0px 0px 0px;	
+	border-radius: 5px 0px 0px 0px;
+	-moz-border-radius: 5px 30px 45px 60px;
+	-webkit-border-radius: 15px;
+	margin: 20px;
+
+
+}
+#contenido{
+   background:#fff;
+   margin:20px auto;
+   overflow:hidden;
+   padding:40px ;
+ border:1px solid #2E9AFE;
+   width:90%;
+   -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+body{
+	margin-bottom: 250px;
+	background: radial-gradient(circle, #771e07,#9b0662)
+	}
+	.footer {
+	  color: rgb(255, 255, 255);
+	  text-align: center;
+	  background-color: #000; 
+	  padding: 20px;
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;
+	  font-family: Arial, Helvetica, sans-serif;
+	  display: flex;
+	  justify-content: space-around;
+	}

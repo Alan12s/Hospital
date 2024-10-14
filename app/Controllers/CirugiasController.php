@@ -18,6 +18,8 @@ class CirugiasController extends BaseController {
     }
 
     public function create() {
+ 
+        log_message('info', 'Entrando al método create de CirugiasController');
         $data['pacientes'] = $this->pacienteModel->findAll();
         return view('cirugias/create', $data);
     }

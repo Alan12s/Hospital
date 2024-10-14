@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.css">
-    <link href="<?php echo base_url();?>css/Estilo.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/Tablas.css">
-    <script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.dataTables.js"></script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Insumo</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url('css/bootstrap.css') ?>">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= base_url('css/Estilo.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/Tablas.css') ?>">
+
+    <!-- jQuery -->
+    <script src="<?= base_url('js/jquery.js') ?>"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+
+    <!-- DataTables JS -->
+    <script src="<?= base_url('js/jquery.dataTables.js') ?>"></script>
 </head>
 <body>
     <center>
@@ -20,57 +31,131 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <?php echo form_open('insumos/create', array('class' => 'form-horizontal')); ?>
-                    <center>
-                        <table border="0">
+                    <!-- Formulario -->
+                    <form action="<?= site_url('insumos/store') ?>" method="post" class="form-horizontal">
+                        <center>
+                            <table border="0">
+
                             <tr>
-                                <td><label for="nombre">Nombre:</label></td>
-                                <td>
-                                    <input type="text" name="nombre" id="nombre" size="50" placeholder="Nombre del Insumo" required class="form-control">
-                                </td>
-                                <td><font color="red"><?php echo form_error('nombre'); ?></font></td>
-                            </tr>
-                            <tr>
-                                <td><label for="descripcion">Descripción:</label></td>
-                                <td>
-                                    <textarea name="descripcion" id="descripcion" rows="3" cols="50" placeholder="Descripción del Insumo" required class="form-control"></textarea>
-                                </td>
-                                <td><font color="red"><?php echo form_error('descripcion'); ?></font></td>
-                            </tr>
-                            <tr>
-                                <td><label for="cantidad">Cantidad:</label></td>
-                                <td>
-                                    <input type="number" name="cantidad" id="cantidad" size="50" placeholder="Cantidad" required class="form-control">
-                                </td>
-                                <td><font color="red"><?php echo form_error('cantidad'); ?></font></td>
-                            </tr>
-                            <tr>
-                                <td><label for="precio">Precio:</label></td>
-                                <td>
-                                    <input type="text" name="precio" id="precio" size="50" placeholder="Precio" required class="form-control">
-                                </td>
-                                <td><font color="red"><?php echo form_error('precio'); ?></font></td>
-                            </tr>
-                            <tr>
-                                <td><label for="fecha_ingreso">Fecha de Ingreso:</label></td>
-                                <td>
-                                    <input type="date" name="fecha_ingreso" id="fecha_ingreso" size="50" required class="form-control">
-                                </td>
-                                <td><font color="red"><?php echo form_error('fecha_ingreso'); ?></font></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><hr/></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <center>
-                                        <button type="submit" class="btn btn-success">Guardar</button>
-                                    </center>
-                                </td>
-                            </tr>
-                        </table>
-                    </center>
-                    <?php echo form_close(); ?>
+                                    <td><label for="nombre">Codigo:</label></td>
+                                    <td>
+                                        <input type="text" name="codigo" id="codigo" size="50" placeholder="Codigo" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('nombre') : '' ?></font>
+                                    </td>
+                                </tr>
+                                <!-- Articulo -->
+                                <tr>
+                                    <td><label for="nombre">Articulo:</label></td>
+                                    <td>
+                                        <input type="text" name="articulo" id="articulo" size="50" placeholder="Nombre del Insumo" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('nombre') : '' ?></font>
+                                    </td>
+                                </tr>
+
+
+                                <!-- Cantidad -->
+                                <tr>
+                                    <td><label for="cantidad">Cantidad:</label></td>
+                                    <td>
+                                        <input type="number" name="cantidad" id="cantidad" size="50" placeholder="Cantidad" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('cantidad') : '' ?></font>
+                                    </td>
+                                </tr>
+                                <!-- Ubicacion -->
+                                <tr>
+                                    <td><label for="nombre">Ubicacion:</label></td>
+                                    <td>
+                                        <input type="text" name="ubicacion" id="ubicacion" size="50" placeholder="Ubicacion" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('ubicacion') : '' ?></font>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <!-- Unidad de medida -->
+                                <tr>
+                                    <td><label for="nombre">Unidad de medida:</label></td>
+                                    <td>
+                                        <input type="text" name="unidad_medida" id="unidad_medida" size="50" placeholder="Unidad de medida" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('nombre') : '' ?></font>
+                                    </td>
+                                </tr>
+
+
+
+
+
+                              <!-- Observaciones-->
+                                <tr>
+                                    <td><label for="nombre">observaciones:</label></td>
+                                    <td>
+                                        <input type="text" name="observaciones" id="observaciones" size="50" placeholder="Observacion" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('nombre') : '' ?></font>
+                                    </td>
+                                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+                                <!--Lote -->
+                                <tr>
+                                    <td><label for="lote">lote:</label></td>
+                                    <td>
+                                        <input type="text" name="lote" id="lote" size="50" placeholder="lote" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('lote') : '' ?></font>
+                                    </td>
+                                </tr>
+
+                                <!-- Fecha de Ingreso -->
+                                <tr>
+                                    <td><label for="fecha_ingreso">Fecha de vencimiento:</label></td>
+                                    <td>
+                                        <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" size="50" required class="form-control">
+                                    </td>
+                                    <td>
+                                        <font color="red"><?= isset($validation) ? $validation->getError('fecha_ingreso') : '' ?></font>
+                                    </td>
+                                </tr>
+
+                                <!-- Separador -->
+                                <tr>
+                                    <td colspan="3"><hr/></td>
+                                </tr>
+
+                                <!-- Botón de guardar -->
+                                <tr>
+                                    <td colspan="3">
+                                        <center>
+                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </form>
                 </td>
             </tr>
         </table>

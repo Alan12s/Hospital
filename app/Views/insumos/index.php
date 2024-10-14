@@ -59,7 +59,11 @@
                             <td><?php echo $insumo->observaciones; ?></td>
                             <td>
                                 <a href="<?php echo site_url('insumos/edit/'.$insumo->id); ?>" class="btn btn-success">Editar</a>
-                                <a href="<?php echo site_url('insumos/delete/'.$insumo->id); ?>" class="btn btn-danger">Eliminar</a>
+                            
+                                <form action="<?php echo site_url('insumos/delete/' . $insumo->id); ?>" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este insumo?');">
+                                <?= csrf_field() ?>  <!-- Esto genera el token CSRF automáticamente -->
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>

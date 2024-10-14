@@ -27,8 +27,9 @@
     <input type="text" name="sala" id="sala" required>
 
     <button type="submit">Guardar</button>
+
 </form>
 
-
+<a href="<?= base_url('cirugias'); ?>">Volver a la lista</a>
 </body>
 </html>
